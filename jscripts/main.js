@@ -1175,7 +1175,7 @@ window.onload = function(e){
 		laba11.redraw();
 		
 		//var check = (1000*Voltage*U)/(1241/L - A)
-		laba11.ShowConstantPicture("Epsilon", "Спектральная плотность излучения", "../pictures/CodeCogsEqn3.gif", "");
+		laba11.ShowConstantPicture("Epsilon", "Спектральная плотность излучения", "pictures/CodeCogsEqn3.gif", "");
 		//laba11.ShowConstant("AmperOut", "Tok на фотоэлементе<br>I = " + (""+amperageResult).substr(0, 9), "mA");
 		laba11.ShowConstant("a_lambda_T", "Поглощательная способность нагретого тела<br>a = " + utils.constants.element[g_nElement].E, "");
 		//laba11.ShowConstant("distance", "Расстояние от нити до фотоэлемента<br>r = " + (""+Math.pow(distance, 0.5)).substr(0, 3), "мм");
