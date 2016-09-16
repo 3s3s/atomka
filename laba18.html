@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+
+.div-table{
+  display:table;         
+  width:auto;         
+  /*border:1px solid  #666666;*/        
+  border-spacing:5px;/*cellspacing:poor IE support for  this*/
+}
+.div-table-row{
+  display:table-row;
+  width:auto;
+  clear:both;
+}
+.div-table-col{
+  float:left;/*fix for  buggy browsers*/
+  display:table-column;  
+  border:1px solid  #666666; 
+  margin:5px; 
+  padding:10px;
+  width:auto;         
+}
+
+
+</style>
+<script src="https://dl.dropboxusercontent.com/s/h679u3035tq8cjz/kinetic.js"></script>
+<script src="https://dl.dropboxusercontent.com/s/0m0vrslgnml6m7v/laba18.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+<div class="div-table">
+	<div class="div-table-row">
+		<div id="container" class="div-table-col"></div>
+		<div id="info" class="div-table-col">
+			<span id="LampT"></span>
+			<span id="LampS"></span>
+			<span id="LampE"></span>
+			<span id="LampR"></span><br>
+			<span id="Epsilon"></span>
+			<span id="Aout"></span>
+			<span id="Uout"></span>
+		</div>
+	</div>
+</div>
+</body>
+</html>
