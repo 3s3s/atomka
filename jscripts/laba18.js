@@ -445,7 +445,7 @@ atomka.Battery = function(coords, value, callback)
 	});
 	
 	var textMinus = new Kinetic.Text({
-		  text: "-",
+		  text: "+",
 		  x: this.pins().up[0]-20,
 		  y: this.pins().up[1]-10,
 		  fontSize: 32,
@@ -455,7 +455,7 @@ atomka.Battery = function(coords, value, callback)
 		});	
 		
 	var textPlus = new Kinetic.Text({
-		  text: "+",
+		  text: "-",
 		  x: this.pins().down[0]-20,
 		  y: this.pins().down[1]-20,
 		  fontSize: 30,
@@ -1350,7 +1350,7 @@ window.onload = function(e){
 	laba11.addVResistor();
 	laba11.addVResistor();
 	laba11.addVoltMeter([370+dX, 360+dY], 0);
-	laba11.addDiod([laba11.voltMeters[0].pins().up[0], 330+dY]);
+	laba11.addDiod([laba11.voltMeters[0].pins().up[0], 250+dY]);
 	
 	laba11.setVResistor(1, [270+dX, 230+dY], 100, laba11.onV1ResistorChanged);
 	laba11.setVResistor(2, [470+dX, 230+dY], 1, laba11.onV2ResistorChanged);
