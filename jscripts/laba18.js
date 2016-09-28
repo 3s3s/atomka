@@ -1365,13 +1365,13 @@ window.onload = function(e){
 	var groupAmpermeter = utils.JoinUpUp(laba11.layer, laba11.amperMeters[0], laba11.photoElements[0]);
 	var groupR1 = utils.JoinUpUp(laba11.layer, laba11.batteries[1], laba11.vResistors[1]);
 	
-	var groupVoltmeter = utils.JoinUpDown(laba11.layer, laba11.voltMeters[0], laba11.diods[0]);
+	var groupVoltmeter = utils.makeGroup(laba11.layer, laba11.voltMeters[0]); //utils.JoinUpDown(laba11.layer, laba11.voltMeters[0], laba11.diods[0]);
 	var group14 = utils.JoinReverce(laba11.layer, groupR1, groupVoltmeter, 0, [groupVoltmeter.pins().up[0], groupR1.pins().down[1]]);
 	var group15 = utils.Join(laba11.layer, group14, laba11.vResistors[2]);
 	var group16 = utils.JoinReverce(laba11.layer, groupAmpermeter, group15);
 	//laba11.photoElements[0].Update([100,100]);
+	
 	var group2 = utils.setGroup(laba11.layer, group16, laba11.monoHromators[0].getKinetic());
-
 	var group4 = utils.setGroup(laba11.layer, groupAmpermeter, group2, laba11.onRightGroupMoved);
 	
 	//var group5 = utils.setGroup(laba11.layer, group3, group4);
