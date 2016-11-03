@@ -1,4 +1,4 @@
-﻿var utils = {};
+var utils = {};
 var elements = {};
 
 var g_nElement = 0;
@@ -770,6 +770,14 @@ atomka.box = function(width, height, label, units)
 	{
 		return textValue.text();
 	};
+	this.setLabel = function(label)
+	{
+		textLabel.text(label+"");
+	};
+	this.setUnits = function(text)
+	{
+		textUnits.text(text+"");
+	};
 	
 	var callbackPlusMinus = 0;
 	this.setPlusMinusCallback = function(callback)
@@ -955,6 +963,15 @@ atomka.MultiMeter = function(coords, value, box, callback)
 		return obj.getVal();
 	};
 	
+	this.setLabel = function(label)
+	{
+		obj.setLabel(label);
+	};
+	this.setUnits = function(text)
+	{
+		obj.setUnits(text);
+	};
+	
 	this.Update = function(coords, value, callback)
 	{
 		if (coords) 
@@ -1055,12 +1072,12 @@ atomka.DensityOfEnergy = function(lambdaNanometers, T)
 	var pi = Math.PI;
 		
 	//var exp = Math.exp((2*pi*(1.054E-34)*(3E+8))/((L*1E-9)*(1.38E-23)*T));
-	var exp = Math.exp((3*6.67E+6)/(L*1.38*T));
+	var exp = Math.exp((3*6.627E+6)/(L*1.38*T));
 	if (exp == 1)
 		exp = 1.00001;
 		
 	//return (1E+16)*(2*3.14*6.67*9)/(Math.pow(L, 5)*(exp - 1));
-	return (2*pi*6.67E+27*9)/(Math.pow(L, 5)*(exp - 1));
+	return (2*pi*6.627E+27*9)/(Math.pow(L, 5)*(exp - 1));
 	
 //	return (1E+27)*(4*pi*1.054*9)/(Math.pow(L, 5)*(exp - 1));
 	
@@ -1137,7 +1154,7 @@ window.onload = function(e){
 			
 			var A = utils.constants.A; //работа выхода фотоэлемента
 
-			U = 1250/L - A;//(1242/L - A)*1.0E-19; //зависимость напряжения от частоты при фотоэффекте
+			U = 1236.69/L - A;//(1242/L - A)*1.0E-19; //зависимость напряжения от частоты при фотоэффекте
 			
 			if (U < 0) U=0;
 			
@@ -1146,6 +1163,9 @@ window.onload = function(e){
 		
 		var scale = 0.000001;
 		var amperageResult = scale*U/distance;
+		
+		//Check
+		//var amperageResult = ((scale*U/distance)/((1236.69)/L - A));
 		
 		for (var n=0;n<spectr2.length;n++)
 			spectr2[n] = (spectr2[n]*scale)/distance;
@@ -1212,6 +1232,9 @@ window.onload = function(e){
 	//laba11.addVoltMeter([700, 100], 0);
 	laba11.addAmperMeter([700, 100], 0);
 	laba11.addAmperMeter([285, 260], 0);
+	
+	laba11.amperMeters[1].setUnits("A");
+	
 	laba11.addVoltMeter([110, 260], 0);
 	laba11.addMonoHromator([430, 90], 200, laba11.onMonohromatorChanged);
 	
